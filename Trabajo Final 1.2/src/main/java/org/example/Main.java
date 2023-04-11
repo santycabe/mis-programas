@@ -15,7 +15,7 @@ public class Main {
         // Variables para almacenar los datos del archivo
         String equipo1, equipo2;
         int golesEquipo1, golesEquipo2;
-        // Listas para almacenar los equipos , partidos y pronosticos
+        // Listas para almacenar los equipos, partidos y pronosticos
         List<Equipo> equipos = new ArrayList<>();
         List<Partido> partidos = new ArrayList<>();
         List<Pronostico> pronosticos = new ArrayList<>();
@@ -109,6 +109,7 @@ public class Main {
         for (Pronostico pro : pronosticos) {
             System.out.println( pro.getGanaEquipoVisitante() + "| puntos: "+ pro.puntos() );
         }
+
 
     }
 }
