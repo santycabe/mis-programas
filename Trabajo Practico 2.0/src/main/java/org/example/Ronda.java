@@ -16,9 +16,12 @@ public class Ronda {
     private int nro;
     private List<Partido> partidos ;
 
-    int numeroRonda = 0;
+    private int numeroRonda = 0;
+
+
+
     //__________________________________________Lector de Resultados________________________________________________
-    public List<Partido> leerDatosRonda() throws SQLException, FileNotFoundException {
+    public List<Partido> leerDatosRonda(String nombreTabla) throws SQLException, FileNotFoundException {
 
         // Variables para almacenar los datos del archivo
         String equipo1, equipo2;
@@ -34,7 +37,7 @@ public class Ronda {
         Statement st = conn.createStatement();
 
         //Ejecutar consulta
-        ResultSet rs = st.executeQuery("select * from resultadopartidos");
+        ResultSet rs = st.executeQuery("select * from " + nombreTabla);
 
         //Recorrer conjunto de filas
         while (rs.next()){

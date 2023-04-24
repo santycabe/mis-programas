@@ -32,8 +32,8 @@ public class Pronostico {
     }
 
 
-    public List<Pronostico> leerDatosPronostico() throws SQLException, FileNotFoundException {
-    //lee los datos de una base de datos y genera una lista con prnosticos
+    public List<Pronostico> leerDatosPronostico(String tabla ) throws SQLException, FileNotFoundException {
+    //lee los datos de una base de datos y genera una lista con pronosticos
         List<Pronostico> pronosticos = new ArrayList<>();
         //Establecer conexion
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/pronostico","root","china1313");
@@ -42,7 +42,7 @@ public class Pronostico {
         Statement st = conn.createStatement();
 
         //Ejecutar consulta
-        ResultSet rs = st.executeQuery("select * from apuesta");
+        ResultSet rs = st.executeQuery("select * from " + tabla);
 
         //Recorrer conjunto de filas
         while (rs.next()){
@@ -56,7 +56,7 @@ public class Pronostico {
             pro.setGanaEquipoLocal(gl);
             pro.setGanaEquipoVisitante(gv);
             pro.setEmpatan(e);
-            pronosticos.add(pro); // Agregar el objeto partidos a la lista
+            pronosticos.add(pro); // Agregar el objeto pro a la lista
 
 
 
